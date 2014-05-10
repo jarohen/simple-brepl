@@ -18,7 +18,7 @@
 (defn brepl-open? []
   ;; Admittedly, this is quite a hack to decide whether the WS is
   ;; open...
-  (boolean (:channel @ws-server/state)))
+  (boolean (:server @ws-server/state)))
 
 (defn brepl-js []
   (format "window.simple_brepl_port=%d;"
