@@ -10,7 +10,7 @@
 
 (defn with-piggieback-hook [project]
   (-> project
-      (update-in [:repl-options :middleware] conj 'cemerick.piggieback/wrap-cljs-repl)))
+      (update-in [:repl-options :nrepl-middleware] conj 'cemerick.piggieback/wrap-cljs-repl)))
 
 (defn middleware [project]
   (-> project
