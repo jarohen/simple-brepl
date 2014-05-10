@@ -1,4 +1,4 @@
-(defproject jarohen/simple-brepl "0.1.0-SNAPSHOT"
+(defproject jarohen/simple-brepl (slurp (clojure.java.io/file "../resources/simple_brepl/VERSION"))
   :description "A plugin to make opening a CLJS browser REPL simple, based atop Weasel"
   :url "https://github.com/james-henderson/simple-brepl"
   :license {:name "Eclipse Public License"
@@ -6,4 +6,8 @@
 
   :dependencies [[leinjacker "0.4.2"]]
   
-  :eval-in-leiningen true)
+  :eval-in-leiningen true
+
+  :scm {:dir ".."}
+
+  :resource-paths ["resources" "../resources"])
