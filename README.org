@@ -1,0 +1,92 @@
+* 'simple-brepl'
+
+Does what it says on the tin - a really simple way to open up a
+ClojureScript browser REPL.
+
+'simple-brepl' is built atop Tom Jakubowski's '[[https://github.com/tomjakubowski/weasel/][Weasel]]' library, which
+uses WebSockets to connect to the browser. WebSockets seem (to me) to
+be a more logical abstraction to use than long-polling connections,
+and I've had far fewer reliability issues (dropped connections etc)
+with Weasel than Austin.
+
+There is a [[https://github.com/james-henderson/simple-brepl/tree/master/sample-project][sample project]] in the repo which may be a good starting
+point - simply clone the repo, =cd sample-project=, =lein dev= and
+open http://localhost:3000 to try it out.
+
+** Getting set up
+
+Setting this up using 'simple-brepl' is achieved with 5 easy steps (the [[https://github.com/james-henderson/splat][SPLAT]]
+template does steps 1-3 for you):
+
+1. Add 'simple-repl' to your =project.clj= plugins:
+
+   #+BEGIN_SRC clojure
+     {:plugins [[jarohen/simple-brepl "0.1.0"]]}
+   #+END_SRC
+
+   (Optional) You can include a =:brepl-port= key in your
+   =project.clj= to customise the port the bREPL listens to
+   (default 9001)
+   
+2. Include a snippet of JS in your web page to connect your browser to
+   the REPL. The =(simple-brepl.service/brepl-js)= function provides the JS -
+   you just have to include it in the =<head>= tag, above your compiled
+   CLJS.
+   
+   You can do this with Hiccup:
+   #+BEGIN_SRC clojure
+     (:require [simple-brepl.service :refer [brepl-js]])
+     ...
+     [:script (brepl-js)]
+   #+END_SRC
+   
+   (If the bREPL is disabled or disconnected, =brepl-js= is a no-op,
+   so you can leave this in even when the CLJS REPL is disabled -
+   e.g. in production)
+
+3. Require =simple-brepl.client= somewhere in your CLJS app - I usually put
+   this in the top-level NS:
+
+  #+BEGIN_SRC clojure
+    (ns my-app.app
+      (:require simple-brepl.client
+                [clojure.string :as s]
+                ...))
+  #+END_SRC
+   
+4. Connect to your usual Clojure REPL, and run =(simple-brepl)= to
+   turn it into a CLJS REPL. (Type =:cljs/quit= to exit back to the
+   Clojure REPL)
+   
+5. Refresh your browser window to connect it to your REPL.
+   
+You should then be able to run commands in the CLJS REPL as you would
+do with any other Clojure REPL. A good smoke test is any one of the
+following:
+
+#+BEGIN_SRC clojure
+  (js/alert "Hello world!")
+  (js/console.log "Hello world!")
+  (set! (.-backgroundColor js/document.body.style) "green")
+#+END_SRC
+
+I have also tested this in Emacs - most of the usual nREPL keybindings
+work fine with CLJS REPLs. The only exception I've found so far (as of
+2013-09-14) is =M-period= and =M-comma= - jump to (and back from) a
+declaration.
+
+** Thanks!
+
+- Thanks to [[https://github.com/tomjakubowski][Tom Jakubowski]] for his excellent [[https://github.com/tomjakubowski/weasel][Weasel]] CLJS REPL library
+
+** Pull requests/bug reports/feedback etc?
+
+Yes please, much appreciated! Please submit via GitHub in the
+traditional manner. (Or, if it fits into 140 chars, you can tweet
+[[https://twitter.com/jarohen][@jarohen]])
+
+** License
+
+Copyright © 2014 James Henderson
+
+Distributed under the Eclipse Public License, the same as Clojure.
