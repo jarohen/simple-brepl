@@ -4,7 +4,10 @@ Does what it says on the tin - a really simple way to open up a
 ClojureScript browser REPL.
 
 'simple-brepl' is built atop Tom Jakubowski's '[[https://github.com/tomjakubowski/weasel/][Weasel]]' library, which
-uses WebSockets to connect to the browser.
+uses WebSockets to connect to the browser. WebSockets seem (to me) to
+be a more logical abstraction to use than long-polling connections,
+and I've had far fewer reliability issues (dropped connections etc)
+with Weasel than Austin.
 
 There is a [[https://github.com/james-henderson/simple-brepl/tree/master/sample-project][sample project]] in the repo which may be a good starting
 point - simply clone the repo, =cd sample-project=, =lein dev= and
