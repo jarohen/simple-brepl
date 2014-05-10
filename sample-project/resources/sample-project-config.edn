@@ -1,0 +1,4 @@
+{:frodo/config {:web {:port 3000
+                      :app sample-project.handler/app
+                      :http-kit/options {:thread 100}}
+                :nrepl {:port 7888}}}
