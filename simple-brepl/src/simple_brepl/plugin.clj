@@ -18,13 +18,13 @@
       with-piggieback-hook))
 
 (defn wrap-eval [eval-in-project project form & [init]]
-  (let [{:keys [brepl-port]
-         :or {brepl-port 9001}} project]
+  (let [{{:keys [ip port]
+          :or {ip "0.0.0.0" port 9001}} :brepl} project]
     
     (eval-in-project project
 
                      `(do
-                        (simple-brepl.service/load-brepl! ~brepl-port)
+                        (simple-brepl.service/load-brepl! ~ip ~port)
                         ~form)
        
                      `(do
