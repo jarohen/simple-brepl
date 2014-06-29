@@ -19,12 +19,17 @@
 
 (defn wrap-eval [eval-in-project project form & [init]]
   (let [{:keys [brepl-port]
-         :or {brepl-port 9001}} project]
+         {:keys [ip port]
+          :or {ip "127.0.0.1"}} :brepl} project]
+
+    (when brepl-port
+      (binding [*out* *err*]
+        (println (format ":brepl-port is deprecated and will be removed in 0.2.0 - please change your project.clj to use {:brepl {:ip \"optional-ip\", :port %d}} instead." brepl-port))))
     
     (eval-in-project project
 
                      `(do
-                        (simple-brepl.service/load-brepl! ~brepl-port)
+                        (simple-brepl.service/load-brepl! ~ip ~(or port brepl-port 9001))
                         ~form)
        
                      `(do
