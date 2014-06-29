@@ -16,7 +16,7 @@
                  [org.clojure/clojurescript "0.0-2202"]]
 
   :plugins [[jarohen/lein-frodo "0.3.0"]
-            [jarohen/simple-brepl "0.1.0"]
+            [jarohen/simple-brepl "0.1.1-SNAPSHOT"]
             [lein-cljsbuild "1.0.3"]
             [lein-shell "0.4.0"]
 
@@ -33,6 +33,8 @@
                         :compiler {:output-to "target/resources/js/sample-project.js"
                                    :optimizations :whitespace
                                    :pretty-print true}}]}
+
+  :brepl {:ip "127.0.0.1" :port 9001}
 
   :aliases {"dev" ["do"
                    ["shell" "mkdir" "-p"
