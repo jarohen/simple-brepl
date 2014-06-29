@@ -1,5 +1,17 @@
 * ChangeLog
 
+** 0.1.1 
+
+No breaking changes.
+
+Deprecation: ={:brepl-port 9002}= in your project.clj should replaced
+by ={:brepl {:port 9002}}= - original will be removed in 0.2.0.
+
+You can now choose the IP address to bind on, by providing (for
+example) ={:brepl {:ip "0.0.0.0", :port 9002}}= in your project.clj.
+
+Thanks to [[https://github.com/mfikes][Mike Fikes]] for his suggestion and subsequent PR.
+
 ** 0.1.0
 
 Initial release.
