@@ -19,7 +19,7 @@
 
 (defn wrap-eval [eval-in-project project form & [init]]
   (let [{{:keys [ip port]
-          :or {ip "0.0.0.0" port 9001}} :brepl} project]
+          :or {ip "127.0.0.1" port 9001}} :brepl} project]
     
     (eval-in-project project
 
