@@ -13,10 +13,10 @@
 
                  [prismatic/dommy "0.1.2"]
                  
-                 [org.clojure/clojurescript "0.0-2261"]]
+                 [org.clojure/clojurescript "0.0-2371"]]
 
   :plugins [[jarohen/lein-frodo "0.3.2"]
-            [jarohen/simple-brepl "0.1.1"]
+            [jarohen/simple-brepl "0.1.2"]
             [lein-cljsbuild "1.0.3"]
             [lein-shell "0.4.0"]
 

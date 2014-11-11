@@ -1,5 +1,14 @@
 * ChangeLog
 
+** 0.1.2
+
+No breaking changes.
+
+Minor change to the CLJS-side to make a variable access safer - thanks
+to [[https://github.com/joelash][Joel Friedman]] for the PR :)
+
+Upgraded to Weasel 0.4.2 to fix a couple of upstream bugs.
+
 ** 0.1.1 
 
 No breaking changes.
