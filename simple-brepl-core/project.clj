@@ -1,4 +1,4 @@
-(defproject jarohen/simple-brepl-core (slurp (clojure.java.io/file "../resources/simple_brepl/VERSION"))
+(defproject jarohen/simple-brepl-core (.trim (slurp (clojure.java.io/file "../resources/simple_brepl/VERSION")))
   :description "Functionality for simple-brepl plugin to call"
   :url "https://github.com/james-henderson/simple-brepl"
   :license {:name "Eclipse Public License"

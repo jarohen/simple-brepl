@@ -1,4 +1,4 @@
-(defproject jarohen/simple-brepl (slurp (clojure.java.io/file "../resources/simple_brepl/VERSION"))
+(defproject jarohen/simple-brepl (.trim (slurp (clojure.java.io/file "../resources/simple_brepl/VERSION")))
   :description "A plugin to make opening a CLJS browser REPL simple, based atop Weasel"
   :url "https://github.com/james-henderson/simple-brepl"
   :license {:name "Eclipse Public License"

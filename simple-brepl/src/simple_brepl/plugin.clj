@@ -6,7 +6,7 @@
 (defn with-core-dep [project]
   (update-in project [:dependencies]
              conj
-             ['jarohen/simple-brepl-core (slurp (io/resource "simple_brepl/VERSION"))]))
+             ['jarohen/simple-brepl-core (.trim (slurp (io/resource "simple_brepl/VERSION")))]))
 
 (defn with-piggieback-hook [project]
   (-> project
