@@ -1,5 +1,17 @@
 * ChangeLog
 
+** 0.2.0
+
+Simple-bREPL has been updated to take account of the breaking changes
+in CLJS 0.0-2665.
+
+Weasel and Piggieback dependencies updated.
+
+No other changes to Simple-bREPL.
+
+Thanks to [[https://github.com/mfikes][Mike Fikes]] and [[https://github.com/viesti][Kimmo Koskinen]] for reminding me when the
+upstream libraries were updated!
+
 ** 0.1.2
 
 No breaking changes.

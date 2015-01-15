@@ -5,9 +5,9 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [weasel "0.4.2"]
-                 [com.cemerick/piggieback "0.1.3"]
-                 [org.clojure/clojurescript "0.0-2371"]]
+                 [weasel "0.5.0"]
+                 [com.cemerick/piggieback "0.1.4"]
+                 [org.clojure/clojurescript "0.0-2665"]]
 
   :scm {:dir ".."}
 
