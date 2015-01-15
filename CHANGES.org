@@ -1,5 +1,9 @@
 * ChangeLog
 
+** 0.2.1
+
+Updating Piggieback to 0.1.5, thanks again [[https://github.com/mfikes][Mike Fikes]]!
+
 ** 0.2.0
 
 Simple-bREPL has been updated to take account of the breaking changes
